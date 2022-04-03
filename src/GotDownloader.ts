@@ -59,6 +59,7 @@ export class GotDownloader implements Downloader<GotDownloaderOptions> {
     await new Promise((resolve, reject) => {
       const downloadStream = got.stream(url, gotOptions);
       downloadStream.on('downloadProgress', async progress => {
+        console.log('Download progrssing'); // testing the lib
         progressPercent = progress.percent;
         if (bar) {
           bar.update(progress.percent);
